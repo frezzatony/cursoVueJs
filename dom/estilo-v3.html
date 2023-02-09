@@ -40,7 +40,7 @@
 <body>
     <div id="app">
         <div class="caixas">
-            <div class="demo" :class="estilo1" @click="aplicaC1 = !aplicaC1"></div>
+            <div class="demo" :class="estilo1" @click="aplicaC1 = !aplicaC1" :teste="{{classeCSS}}"></div>
             <div class="demo" :class="{'c1':aplicaC1,'c2':!aplicaC1}" @click="aplicaC1 = !aplicaC1"></div>
             <div class="demo" :class="[classeCSS,{girar:classeGirar},'bordas']" @click="classeGirar = !classeGirar">
             </div>

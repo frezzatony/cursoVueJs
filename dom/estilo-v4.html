@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .caixas {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="caixas">
+            <div class="demo" :style="{'background-color': corFundoDivDemo}"></div>
+            <div class="demo" :style="{'backgroundColor': corFundoDivDemo}"></div>
+            <div class="demo" :style="[{'transform': 'rotate(' + rotacao + 'deg)'}]" @click="incrementaRotacao"
+                @mouseleave="incrementaRotacao" @mouseenter="incrementaRotacao">
+            </div>
+        </div>
+        <hr>
+        <input type="text" v-model="corFundoDivDemo">
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            corFundoDivDemo: 'red',
+            rotacao: 0,
+        },
+        methods: {
+            incrementaRotacao: function () {
+                this.rotacao += 20;
+            }
+        }
+    });
+</script>
+
+</html>
