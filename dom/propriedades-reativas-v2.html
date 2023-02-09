@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="adicionar()">Adicionar</button>
+        <button v-on:click="contador2++">Adicionar 2</button>
+        <button v-on:click="diminuir()">Diminuir</button>
+        <p>Contador: {{contador}} | {{contador2}}</p>
+        <p>Contador inicial: {{atualizarResultado}}</p>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            contador2: 0,
+        },
+        computed: {
+            atualizarResultado: function () {
+                console.log('contador principal atualizado via computed');
+                return this.contador <= 5
+                    ? 'Menor ou igual a 5'
+                    : 'Maior que 5';
+            },
+        },
+        methods: {
+            adicionar: function () {
+                this.contador++;
+            },
+            diminuir: function () {
+                this.contador--;
+            },
+            // atualizarResultado: function () {
+            //     console.log('passei');
+            //     return this.contador <= 5
+            //         ? 'Menor ou igual a 5'
+            //         : 'Maior que 5';
+            // },
+        }
+    });
+</script>
+
+</html>

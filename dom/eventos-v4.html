@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ contador }}</p>
+        <button v-on:click="somar($event,5)">Somar</button>
+        <p v-on:mousemove="atualizarXeYMouse">
+            Mouse: x({{mouseX}}) | y({{mouseY}})
+            <span v-on:mousemove.stop>NÃO ATUALIZAR MOUSE AQUI NESTE SPAN</span>
+            <span v-on:mousemove="naoAtualizarMouse">NESTE SPAN TBM NAO ATUALIZAR MOUSE</span>
+        </p>
+        <a v-on:click.prevent href="https://google.com">Google</a>
+        <a v-on:click="preventEvento" href="https://google.com">Google</a>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            mouseX: null,
+            mouseY: null
+        },
+        methods: {
+            somar: function (e, valorSomar) {
+                this.contador += valorSomar;
+            },
+            atualizarXeYMouse: function (e) {
+                this.mouseX = e.clientX;
+                this.mouseY = e.clientY;
+            },
+            naoAtualizarMouse: function (e) {
+                e.stopPropagation();
+            },
+            preventEvento: function (e) {
+                e.preventDefault();
+            }
+        }
+    });
+
+</script>
+
+</html>
