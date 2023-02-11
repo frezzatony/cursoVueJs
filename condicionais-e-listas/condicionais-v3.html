@@ -7,7 +7,10 @@
 
 <body>
     <div id="app">
-        <p v-if="usuario.logado">Usuário Logado: {{ usuario.nome}}</p>
+        <template v-if="usuario.logado">
+            <p>Usuário Logado: {{ usuario.nome}}</p>
+            <p>Perfil: Admin</p>
+        </template>
         <p v-else-if="usuario.anonimo">Navegando como anônimo</p>
         <p v-else>Nenhum usuário logado</p>
         <button @click="{{ usuario.logado = !usuario.logado }}">{{ usuario.logado ? 'Sair' : 'Entrar'}}</button>
