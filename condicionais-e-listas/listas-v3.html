@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <template v-for="pessoa in pessoas">
+            <div>
+                <h5>{{ pessoa.name.toUpperCase() }}</h5>
+                <span>Idade: {{ pessoa.age}}</span> |
+                <span>Gênero: {{ pessoa.gender.toUpperCase()}}</span> |
+                <span>Cor dos olhos:
+                    <span :style="[styleCorOlhosPessoa,{'backgroundColor': pessoa.eyeColor}]"
+                        v-bind:title="pessoa.eyeColor.toUpperCase()"></span>
+                </span>
+            </div>
+            <hr>
+        </template>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+            styleCorOlhosPessoa: {
+                width: "20px",
+                height: "20px",
+                display: "inline-block",
+
+            },
+            pessoas: [
+                {
+                    "_id": "63e8ddd9059e7bfe6b744146",
+                    "age": 37,
+                    "eyeColor": "green",
+                    "name": "Earline Davenport",
+                    "gender": "female",
+                    "company": "COMTRACT",
+                    "email": "earlinedavenport@comtract.com",
+                    "phone": "+1 (841) 426-3427"
+                },
+                {
+                    "_id": "63e8ddd960c84d74d5f49c24",
+                    "age": 20,
+                    "eyeColor": "green",
+                    "name": "Charity Diaz",
+                    "gender": "female",
+                    "company": "MICRONAUT",
+                    "email": "charitydiaz@micronaut.com",
+                    "phone": "+1 (961) 404-2185"
+                },
+                {
+                    "_id": "63e8ddd9aefe5e7be3f3f27c",
+                    "age": 30,
+                    "eyeColor": "brown",
+                    "name": "Washington Bird",
+                    "gender": "male",
+                    "company": "CANDECOR",
+                    "email": "washingtonbird@candecor.com",
+                    "phone": "+1 (806) 453-3196"
+                },
+                {
+                    "_id": "63e8ddd9867f7a48cf8b7ea7",
+                    "age": 24,
+                    "eyeColor": "green",
+                    "name": "Hernandez Copeland",
+                    "gender": "male",
+                    "company": "LETPRO",
+                    "email": "hernandezcopeland@letpro.com",
+                    "phone": "+1 (818) 520-3461"
+                },
+                {
+                    "_id": "63e8ddd9c6880408f07983f2",
+                    "age": 35,
+                    "eyeColor": "blue",
+                    "name": "Angelita Buck",
+                    "gender": "female",
+                    "company": "POLARAX",
+                    "email": "angelitabuck@polarax.com",
+                    "phone": "+1 (946) 595-3020"
+                },
+                {
+                    "_id": "63e8ddd965b9621b4828b70e",
+                    "age": 38,
+                    "eyeColor": "brown",
+                    "name": "Muriel Mckee",
+                    "gender": "female",
+                    "company": "PYRAMIS",
+                    "email": "murielmckee@pyramis.com",
+                    "phone": "+1 (921) 482-3485"
+                }
+            ]
+        }
+    });
+</script>
+
+</html>
