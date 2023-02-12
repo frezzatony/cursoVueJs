@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="cor in cores" :key="cor">{{ cor.charAt(0).toUpperCase() + cor.slice(1) }}</li>
+        </ul>
+        <input type="text" ref="cor" @keyup.enter="addCor">
+        <button @click="addCor()">Adicionar cor</button>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+        },
+        methods: {
+            addCor: function () {
+                this.cores.push(this.$refs.cor.value);
+                this.$refs.cor.value = '';
+            }
+        }
+    });
+</script>
+
+</html>
